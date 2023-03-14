@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>CHECKOUT</h1>
+<div>
+  <p class="subheading">Last step - just fill out the boxes below and click the shiny button. It likes when you do that. Let's make it happy.</p>
+
+  <form class="checkout_form" method="POST" action="">
+    {{ form.csrf_token }}
+    <p>{{ form.name.label }} {{ form.name }}</p>
+    <p>{{ form.card_no.label }} {{ form.card_no }}</p>
+    <p>{{ form.gift.label }} {{ form.gift }}</p>
+    <p>{{ form.recommend.label }} {{ form.recommend }}</p>
+    <p>{{ form.comments.label }} {{ form.comments }}</p>
+    <br><br>
+    {% for error in form.name.errors %}
+      <span style="color: red;">[{{error}}]</span>
+    {% endfor %}
+    {% for error in form.card_no.errors %}
+      <span style="color: red;">[{{error}}]</span>
+    {% endfor %}
+    <p>{{ form.submit }}</p>
+
+</div>
+
+
+
+{% endblock content %}

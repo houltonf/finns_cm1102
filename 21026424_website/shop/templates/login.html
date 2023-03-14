@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>THE LOGIN PAGE</h1>
+  <form method="POST" action="">
+    {{ form.csrf_token }}
+    <p>{{ form.username.label }} {{ form.username(id="username") }}</p>
+    <p>{{ form.password.label }} {{ form.password(id="password") }}</p>
+    <input type="submit" value="Login">
+  </form>
+
+  {% for error in form.username.errors %}
+    <span style="color: red;">[{{error}}]</span>
+  {% endfor %}
+  {% for error in form.password.errors %}
+    <span style="color: red;">[{{error}}]</span>
+  {% endfor %}
+
+{% endblock content %}

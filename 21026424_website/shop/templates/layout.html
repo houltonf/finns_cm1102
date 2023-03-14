@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <title>Boujee Flatpacks</title>
+  </head>
+  <body>
+    <div id="header">
+    </div>
+
+    <div id="Mynav">
+      <nav class="bar">
+        <a id="home" href="{{ url_for('home') }}">Home</a>&nbsp
+        <a id="show_cart" href="{{ url_for('cart') }}">My Cart</a>&nbsp
+        <a id="register" href="{{ url_for('register') }}">Register</a>&nbsp
+        <a id="login" href="{{ url_for('login') }}">Login</a>&nbsp
+        <a id="logout" href="{{ url_for('logout') }}">Logout</a>&nbsp
+      </nav>
+    </div>
+
+    <div>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      <ul class="flashes">
+        {% for category, message in messages %}
+        <li class="{{ category }}" id="{{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+    </div>
+
+    <div id="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+  </body>
+</html>

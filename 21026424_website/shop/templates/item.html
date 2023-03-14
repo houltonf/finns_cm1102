@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>ITEM DETAILS</h1>
+&nbsp
+  <img class="item" src="{{ url_for('static', filename='img/' + item.image_file) }}" width="370px">
+  <h2 class="item">{{ item.name }}</h2>
+  &nbsp <p class="item">Sold by: {{ item.user.username }}</p>
+  <p id="item_desc">Product description: {{ item.description }}</p>
+  <p class="item">Price: {{ item.price }} &nbsp (GBP)</p>
+  <p class="item"> There is {{ item.stock }} of this product currently in stock.</p>
+{% endblock content %}

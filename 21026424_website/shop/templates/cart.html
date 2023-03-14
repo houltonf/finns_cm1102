@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>CURRENT SHOPPING CART</h1>
+<div class="logged_in">
+  &nbsp&nbsp<span class="logged_in">{{logged_in_as}}'s shopping cart</span>
+</div>
+
+<p class="subheading">Behold - the current shopping cart</p>
+
+<div class="review_wall">
+  <p id="review_header">See what people are<br>
+    saying about us!</p>
+  {% if review_list %}
+  {% for review in review_list %}
+  <p class="review">"{{ review }}"</p>
+  {% endfor %}
+  {% endif %}
+</div>
+
+<div>
+  {% if cart_items %}
+  {% for item in cart_items %}
+    <div class="gallery_item" style="position: relative;">
+      <h2 class="item_name">{{ item.name }}</h2>
+      <span class="poundsign">£</span><span class="item_price">{{ item.price }}</span>
+      <br><br>
+      <span><form method="GET" action="{{ url_for('remove_from_cart', item_id=item.id) }}">
+        {{ form.remove(class_="remove") }}</form></span>
+      <br><br>
+    </div>
+  {% endfor %}
+  {% endif %}
+  {% if not cart_items %}
+    <div>
+      <br><br>
+      <p>Your cart looking real empty. Get adding items! Literally just click the button.</p>
+    </div>
+  {% endif %}
+</div>
+
+<br><br><br>
+<div class="grand_total">
+  <span class="poundsign">£</span><span id="total_price">{{total}}</span>
+</div>
+<br><br>
+<span><form method="GET" action="{{ url_for('checkout') }}">
+  {{ form.checkout(id="checkout") }}</form></span>
+
+{% endblock content %}

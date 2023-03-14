@@ -1,0 +1,158 @@
+nav.bar {
+	background-color: black;
+	color: white;
+	text-align: center;
+}
+nav.bar > a {
+  border: 8px solid black;
+	background-color: black;
+	text-decoration: none;
+	color: white;
+	padding: 5px;
+	font-size: 1.5em;
+	font-family: serif;
+}
+nav.bar > a:hover {
+	border: 8px solid white;
+	background-color: white;
+	text-decoration: underline;
+	color: black;
+	padding: 5px;
+	font-size: 1.5em;
+	font-family: serif;
+}
+
+img.item_preview {
+	position: relative;
+	float: left;
+	padding-right: 8px;
+	padding-bottom: 40px;
+}
+
+span.stock{
+	align-content: center;
+}
+span.footprint{
+	float: right;
+}
+
+a {
+  font-style: italic;
+}
+
+h1.item_name {
+  font-weight: bold;
+}
+
+h1 {
+  background-color: #f26841;
+  color: #ffffff;
+  text-align: center;
+	font-size: 3em;
+	font-family: Helvetica;
+}
+
+h2.item_name {
+	font-size: 2em;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	border-bottom: 0px;
+	margin-top: 3px;
+}
+
+p.author {
+	font-weight: bold;
+	font-size: 20px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	border-top-width: 0px;
+	padding-top: 0px;
+	margin-top: 5px;
+}
+
+p.item_description {
+	font-size: 18px;
+	margin-bottom: 9px;
+}
+
+p.desc{
+	font-size: 18px;
+}
+
+span.item_price {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 18px;
+	padding-top: 0px;
+	padding-bottom: 8px;
+}
+span.poundsign {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 18px;
+	padding-top: 0px;
+	padding-bottom: 8px;
+}
+
+p#stats_header{
+	color: red;
+	font-weight: bold;
+	font-size: 24px;
+	text-align: right;
+	text-decoration: underline; /* https://www.w3schools.com/cssref/pr_text_text-decoration.asp */
+	margin-bottom: 6px;
+	font-family: Verdana;				/* https://www.w3.org/Style/Examples/007/fonts.en.html */
+}
+p.stats {
+	font-style: italic;
+	text-align: right;
+	font-size: 16px;
+}
+
+div.stats_wall {
+	float: right;
+	padding-left: 3px;
+}
+
+span.logged_in {
+	font-size: 16px;
+	font-family: Verdana;
+}
+
+p.subheading {
+	font-size: 16px;
+	font-family: Verdana;
+}
+
+div.review_wall {
+	float: right;
+}
+p#review_header{
+	color: red;
+	font-weight: bold;
+	font-size: 24px;
+	text-align: right;
+	text-decoration: underline;
+	margin-bottom: 6px;
+	font-family: Verdana;
+}
+p.review {
+	font-size: 20px;
+	text-align: right;
+}
+
+h2.item {
+	font-size: 28px;
+	text-decoration: underline;
+	margin-bottom: 0px;
+}
+p.item {
+	font-size: 20px;
+	margin-top: 0px;
+}
+p#item_desc{
+	font-size: 18px;
+}
+img.item{
+	position: relative;
+}

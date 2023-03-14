@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>BOUJEE FLATPACKS</h1>
+
+<div style="float: left;" class="boujee_desc">
+<p class="desc"><b>Welcome to Boujee Flatpacks!</b> This is an online shop that provides you with
+  themed flatpacks inspired by some of the most popular animated films. Each listing has been authored by a vendor
+  affiliated with Boujee Flatpacks; packs are authentic, created by the vendor, and shipped through Boujee Flatpacks.
+  Serve your needs beyond redecoration and DIY with a Boujee Flatpack!<br>
+  Contact: <a href="mailto:HoultonF@cardiff.ac.uk">HoultonF@cardiff.ac.uk</a> | +447429681710</p>
+</div>
+<br><br>
+
+<div style="float: right;" class="item_filter">
+  <form class="filter" action="" method="POST">
+    {{item_filter.sort_type}}
+  </form>
+</div>
+<br><br>
+
+<div class="logged_in">
+  {% if logged_in_as %}
+  &nbsp&nbsp<span class="logged_in">Welcome back, {{logged_in_as}}</span>
+  {% endif %}
+  {% if logged_in_as == None %}
+  &nbsp&nbsp<span class="logged_in">You are currently browsing anonymously.</span>
+  {% endif %}
+</div>
+<br>
+
+<div class="stats_wall">
+  <p id="stats_header"> Boujee Stats Wall </p>
+  <p class="stats">Total Flatpacks sold: {{ stats.total_sales }}</p>
+  <p class="stats">Number of people who recommed us: {{ stats.recommendations }}</p>
+  <p class="stats">Recommendations : Sales ratio: {{ sale_rec_ratio }}</p>
+</div>
+
+<br><br>
+<div class="gallery">
+  {% for item in items %}
+  <div class="gallery_item" style="position: relative;">
+    <a class="item_img" href="{{ url_for('item', item_id=item.id) }}">
+      <img class="item_preview" src="{{ url_for('static', filename='img/' + item.image_file) }}"/>
+      <h2 class="item_name">{{ item.name }}</h2></a>
+      <p class="author">Sold by: {{ item.user.username }}</p>
+      <p class="item_description">{{ item.description }}</p>
+      <span class="poundsign">£</span><span class="item_price">{{ item.price }}</span>
+      &nbsp;&nbsp;<span class="stock">{{ item.stock }} left in stock.</span>
+      <span class="footprint"> For this item to be delivered to Cardiff, the amount of carbon emitted is
+        equivalent to running an LED bulb for <i>{{ item.footprint }}</i> hours.</span>
+
+      <br><br>
+      <span>
+      <form style="float: left;" method="GET" action="{{ url_for('add_to_cart', item_id=item.id) }}">
+        {{ form.csrf_token }}{{ form.add(class_="add_to_cart") }}</form>
+      <form style="float: left;" method="GET" action="{{ url_for('item', item_id=item.id) }}">
+        {{ form.csrf_token }}{{ form.details(class_="details") }}</form>
+      </span>
+      <br>
+
+  </div>
+  <br><br>
+  {% endfor %}
+{% endblock content %}
+</div>
